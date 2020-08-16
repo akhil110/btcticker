@@ -5,16 +5,16 @@ const gbpArr = [];
 const eurArr = [];
 const jpyArr = [];
 
-socket.on('subscribed-btc-prices', ticketdata => {
-	refreshTicker(ticketdata);
+socket.on('subscribed-btc-prices', tickerdata => {
+	refreshTicker(tickerdata);
 });
 
-function refreshTicker(ticketdata) {
+function refreshTicker(tickerdata) {
 	const tblBTC = document.getElementById("btcticker");
 	const tblRow = tblBTC.getElementsByTagName("tr");
 	let rowCnt = 0;
 
-	ticketdata.map((item) => {
+	tickerdata.map((item) => {
 		for (let i = 0; i < tblRow.length; i++) {
 			const tblCol = tblRow[i].getElementsByTagName("td")[0];
       if (tblCol) {
@@ -42,7 +42,7 @@ function refreshTicker(ticketdata) {
 		rowCnt++;
 	});
 
-	tapeTicker(ticketdata);
+	tapeTicker(tickerdata);
 }
 
 function printCurrency(currency) {
