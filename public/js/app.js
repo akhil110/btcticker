@@ -87,10 +87,10 @@ function drawSparkline(currency, price) {
 	}
 }
 
-function tapeTicker(ticketdata) {
+function tapeTicker(tickerdata) {
 	if (usdArr.length > 1) {
 		const ticker = document.getElementById('tickertape');
-		ticker.innerHTML = `Bitcoin (BTC): <b>${roundNumber(ticketdata[0].price)}</b> USD ${getDirection(ticketdata[0].target)} <i class="seperator"></i> <b>${roundNumber(ticketdata[1].price)}</b> GBP ${getDirection(ticketdata[1].target)} <i class="seperator"></i> <b>${roundNumber(ticketdata[2].price)}</b> EUR ${getDirection(ticketdata[2].target)} <i class="seperator"></i> <b>${roundNumber(ticketdata[3].price)}</b> JPY ${getDirection(ticketdata[3].target)}<br>
+		ticker.innerHTML = `Bitcoin (BTC): <b>${roundNumber(tickerdata[0].price)}</b> USD ${getDirection(tickerdata[0].target)} <i class="seperator"></i> <b>${roundNumber(tickerdata[1].price)}</b> GBP ${getDirection(tickerdata[1].target)} <i class="seperator"></i> <b>${roundNumber(tickerdata[2].price)}</b> EUR ${getDirection(tickerdata[2].target)} <i class="seperator"></i> <b>${roundNumber(tickerdata[3].price)}</b> JPY ${getDirection(tickerdata[3].target)}<br>
 		<span>Updated on: ${formatDate()}</span>`;
 	}
 }
