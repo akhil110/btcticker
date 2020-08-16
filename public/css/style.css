@@ -64,7 +64,7 @@ table td {
 }
 
 .ticker-tape:empty:before {
-  content: "Loading ticker...";
+  content: "Loading ticker...wait for 10 sec";
   opacity: .5;
 }
 
