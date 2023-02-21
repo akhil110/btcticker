@@ -1,4 +1,8 @@
-const request = require('request');
+/*
+	Commented section of code used for fetching data from the APIs
+*/
+
+/* const request = require('request');
 
 exports.pushUpdates = function() {
 	return new Promise(function (resolve, reject) {
@@ -30,4 +34,28 @@ function fetchAPI(apiPath) {
 			}
 		});
 	});
+} */
+
+
+
+/*
+	Below code uses random data to memic APIs
+*/
+
+exports.pushUpdates = function() {
+	const tickerArr = [];
+    tickerArr.push(generateRandomData('USD'));
+    tickerArr.push(generateRandomData('GBP'));
+    tickerArr.push(generateRandomData('EUR'));
+    tickerArr.push(generateRandomData('JPY'));
+    return tickerArr;
+}
+
+function generateRandomData(currency) {
+    const tickerData = {};
+    tickerData.target = currency;
+    tickerData.price = Math.random() * 100000;
+    tickerData.volume = Math.random() * 100000;
+    tickerData.change = Math.random() * (-100);
+    return tickerData;
 }

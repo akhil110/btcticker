@@ -16,9 +16,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 io.on('connection', socket => {
 	console.log('Client connected');
 
-	setInterval( async () => {
-		socket.emit('subscribed-btc-prices', await fetchbtc.pushUpdates().catch(err => { console.log(err) }));
-	}, 5000);
+	try {
+		/* 
+		Use the commented block for real API call
+		setInterval( async () => {
+			socket.emit('subscribed-btc-prices', await fetchbtc.pushUpdates().catch(err => { console.log(err) }));
+		}, 5000); */
+
+		/* Below block used with random data */
+		setInterval(() => {
+			socket.emit('subscribed-btc-prices',fetchbtc.pushUpdates());
+		}, 5000);
+	} catch (e) {
+		console.log(e);
+	}
+
+	
 })
 
 server.listen(PORT, () => console.log(`BTCTicker server running on port ${PORT}`));
